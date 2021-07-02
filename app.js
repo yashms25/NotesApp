@@ -29,10 +29,14 @@ function showNotes() {
   }
   let html = "";
   notesObj.forEach(function(element, index) {
+    let date = new Date;
+    let day = date.getDay();
+    let month = date.getMonth();
+    let year = date.getFullYear();
     html += `
             <div class="shadow p-3 mb-5 bg-white rounded noteCard my-2 mx-2 card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Note ${index + 1}</h5>
+                        <h5 class="card-title">Note-${index + 1} &nbsp; &nbsp;  &nbsp; ${day}/${month}/${year}</h5>
                         <p class="card-text"> ${element}</p>
                         <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-dark">Delete Note</button>
                     </div>
