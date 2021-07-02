@@ -41,12 +41,19 @@ function showNotes() {
     let day = date.getDay();
     let month = date.getMonth();
     let year = date.getFullYear();
+    let hr = date.getHours();
+    let min = date.getMinutes();
     html += `
-            <div class="shadow p-3 mb-5 bg-white rounded noteCard my-2 mx-2 card" style="width: 18rem;">
+            <div class="shadow p-3 mb-5 bg-white rounded noteCard my-2 mx-2 card">
                     <div class="card-body">
-                        <h5 class="card-title">${index + 1}. ${element.title}</h5>
+                        <h5 class="card-title">${index + 1}. ${element.title} </h5>
                         <p class="card-text"> ${element.text}</p>
                         <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-dark">Delete Note</button>
+                        <hr>
+                        <div style="display: flex;  justify-content: space-between;">
+                        <h6>${day}/${month}/${year}</h6>
+                        <h6>${hr}:${min}</h6>
+                        </div>
                     </div>
                 </div>`;
   });
