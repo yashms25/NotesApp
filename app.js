@@ -30,11 +30,11 @@ function showNotes() {
   let html = "";
   notesObj.forEach(function(element, index) {
     html += `
-            <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
+            <div class="shadow p-3 mb-5 bg-white rounded noteCard my-2 mx-2 card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Note ${index + 1}</h5>
                         <p class="card-text"> ${element}</p>
-                        <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
+                        <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-dark">Delete Note</button>
                     </div>
                 </div>`;
   });
@@ -42,7 +42,7 @@ function showNotes() {
   if (notesObj.length != 0) {
     notesElm.innerHTML = html;
   } else {
-    notesElm.innerHTML = `Nothing to show! Use "Add Note" section above to add notes.`;
+    notesElm.innerHTML = `Nothing to show! Use "Add a Note" section above to add notes.`;
   }
 }
 
