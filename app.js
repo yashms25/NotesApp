@@ -6,15 +6,23 @@ showNotes();
 let addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", function(e) {
   let addTxt = document.getElementById("addTxt");
+  let title = document.getElementById("title");
   let notes = localStorage.getItem("notes");
   if (notes == null) {
     notesObj = [];
   } else {
     notesObj = JSON.parse(notes);
   }
-  notesObj.push(addTxt.value);
+  let myobj = {
+    title: title.value,
+    text: addTxt.value
+  }
+  if(addTxt.value!=="" && title.value!==""){
+  notesObj.push(myobj);
+  }
   localStorage.setItem("notes", JSON.stringify(notesObj));
   addTxt.value = "";
+  title.value ="";
 //   console.log(notesObj);
   showNotes();
 });
@@ -36,8 +44,8 @@ function showNotes() {
     html += `
             <div class="shadow p-3 mb-5 bg-white rounded noteCard my-2 mx-2 card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Note-${index + 1} &nbsp; &nbsp;  &nbsp; ${day}/${month}/${year}</h5>
-                        <p class="card-text"> ${element}</p>
+                        <h5 class="card-title">${index + 1}. ${element.title}</h5>
+                        <p class="card-text"> ${element.text}</p>
                         <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-dark">Delete Note</button>
                     </div>
                 </div>`;
@@ -84,11 +92,3 @@ search.addEventListener("input", function(){
         // console.log(cardTxt);
     })
 })
-
-/*
-Further Features:
-1. Add Title
-2. Mark a note as Important
-3. Separate notes by user
-4. Sync and host to web server 
-*/ 
