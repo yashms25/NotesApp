@@ -38,8 +38,8 @@ function showNotes() {
   let html = "";
   notesObj.forEach(function(element, index) {
     let date = new Date;
-    let day = date.getDay();
-    let month = date.getMonth();
+    let day = date.getDate();
+    let month = date.getMonth()+1;
     let year = date.getFullYear();
     let hr = date.getHours();
     let min = date.getMinutes();
