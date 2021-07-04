@@ -43,6 +43,7 @@ function showNotes() {
     let year = date.getFullYear();
     let hr = date.getHours();
     let min = date.getMinutes();
+    console.log(day,year,month)
     html += `
             <div class="shadow p-3 mb-5 bg-white rounded noteCard my-2 mx-2 card">
                     <div class="card-body">
@@ -99,3 +100,4 @@ search.addEventListener("input", function(){
         // console.log(cardTxt);
     })
 })
+
